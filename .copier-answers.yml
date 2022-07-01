@@ -1,0 +1,41 @@
+# Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
+_commit: v0.2.0
+_src_path: git@github.com:milo-minderbinder/copier-bash-getopts.git
+description: git-list-files is a CLI utility for listing the files in a local or remote
+    git repository.
+file_name: git-list-files.bash
+function_name: main
+max_positional_args: -1
+min_positional_args: 0
+opts:
+-   additive: false
+    default: $(pwd -P)
+    description: repository URL or directory path
+    dest: repository
+    flag: r
+    metavar: <REPOSITORY>
+    required: false
+-   additive: false
+    default: HEAD
+    description: git tree-ish for which to list the files
+    dest: tree
+    flag: t
+    metavar: <TREE-ISH>
+    required: false
+positional_args_help: '[<PATH>] (optional) path patterns for which to list matching
+    files'
+positional_args_metavars: ' [<PATH>]...'
+project_name: git-list-files
+project_slug: git-list-files
+short_description: CLI utility for listing the files in a local or remote git repository.
+switches:
+-   additive: true
+    description: increase verbosity
+    dest: verbosity
+    flag: v
+-   additive: false
+    description: separate files with NUL byte
+    dest: null_sep
+    flag: z
+
+
