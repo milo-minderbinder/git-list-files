@@ -225,15 +225,15 @@ EOF
 		fi
 	fi
 
-	log_debug "verbosity: ${verbosity[*]:-}"
-	log_debug "null_sep: ${null_sep:-}"
-	log_debug "repository: ${repository:-}"
-	log_debug "tree: ${tree:-}"
-	if [[ "$#" -gt "0" ]]; then
-		log_debug "positional args: $(printf '\n\t"%s"' "$@")"
-	else
-		log_debug 'no positional args given'
-	fi
+	# log_debug "verbosity: ${verbosity[*]:-}"
+	# log_debug "null_sep: ${null_sep:-}"
+	# log_debug "repository: ${repository:-}"
+	# log_debug "tree: ${tree:-}"
+	# if [[ "$#" -gt "0" ]]; then
+	# 	log_debug "positional args: $(printf '\n\t"%s"' "$@")"
+	# else
+	# 	log_debug 'no positional args given'
+	# fi
 }
 
 main "$@"
