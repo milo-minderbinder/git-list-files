@@ -234,6 +234,22 @@ EOF
 	# else
 	# 	log_debug 'no positional args given'
 	# fi
+
+	local repo_paths
+	local repo_dir
+
+	repo_paths=("$@")
+	if [[ "${#repo_paths[@]}" -eq "0" ]]; then
+		repo_paths=('.')
+	fi
+	repo_dir="$repository"
+	if [[ ! -d "$repo_dir" ]]; then
+		repo_dir="$(mktemp -d)"
+		append_trap "rm -rf '$repo_dir' || printf 'failed to remove temporary directory: $repo_dir\\n' 1>&2" EXIT
+		git clone --no-checkout --depth=1 --filter=blob:none "$repository" "$repo_dir"
+	fi
+
+	git -C "$repo_dir" ls-tree --full-name --name-only -r ${null_sep:+-z} "$tree" "${repo_paths[@]:-}"
 }
 
 main "$@"
